@@ -325,6 +325,7 @@ public class Tablero implements Serializable {
 	 * @return
 	 */
 	
+	@SuppressWarnings("incomplete-switch")
 	public ResultAccion avanza() {
 		TipoCasilla dir = jugador.getCasilla().getTipoCasilla();
 		Casilla orig = jugador.getCasilla();

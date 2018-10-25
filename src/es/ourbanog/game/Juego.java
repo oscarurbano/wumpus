@@ -1,9 +1,5 @@
 package es.ourbanog.game;
 
-import java.io.IOException;
-import java.nio.Buffer;
-import java.nio.ByteBuffer;
-
 import es.ourbanog.data.Tablero;
 import es.ourbanog.util.UserInput;
 

@@ -479,7 +479,29 @@ public class Tablero implements Serializable {
 		return pierde;
 	}
 
-	
-	
+	public Jugador getJugador() {
+		return jugador;
+	}
+
+	public void setJugador(Jugador jugador) {
+		this.jugador = jugador;
+	}
+
+	public void setGana(boolean gana) {
+		this.gana = gana;
+	}
+
+	public void setPierde(boolean pierde) {
+		this.pierde = pierde;
+	}
+
+
+	public int getDimension() {
+		return dimension;
+	}
+
+	public void setDimension(int dimension) {
+		this.dimension = dimension;
+	}	
 	
 }

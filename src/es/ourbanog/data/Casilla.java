@@ -49,6 +49,9 @@ public class Casilla implements Serializable {
 	public boolean isEmpty() {
 		return this.tipoCasila==TipoCasilla.VACIA;
 	}
-	
-	
+	@Override
+	public String toString() {
+		StringBuffer buffer = new StringBuffer().append("X = ").append(coord_X).append( " Y = ").append(coord_Y).append(" Tipo: ").append(tipoCasila.name());
+		return buffer.toString();
+	}
 }

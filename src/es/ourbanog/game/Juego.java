@@ -135,7 +135,8 @@ public class Juego {
 						tablero.informaSensaciones();
 						break;
 					case IMP_TAB:
-						tablero.dibuja();
+						System.out.println(tablero.dibuja());
+						System.out.println(tablero.dibujaLeyenda());
 						break;
 					case TIR_FLECHA:
 						System.out.println(tablero.tiraFlecha().getDescipcion());

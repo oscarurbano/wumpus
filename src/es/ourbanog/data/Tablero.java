@@ -141,31 +141,7 @@ public class Tablero implements Serializable {
 		}
 	}
 	
-	/**
-	 * Dibuja el tablero en modo texto mostrando las casillas y su contenido
-	 */
-	public void dibuja() {
-		
-		
-		for(int i=0;i<dimension;i++) { //Filas
-			System.out.print("|");
-			for (int x=0; x<dimension;x++) { //Primera fila
-				System.out.print("-----|");
-			}
-			System.out.println();
-			System.out.print("|");
-			for (int j=0; j<dimension;j++) { //Columnas intermedias
-				System.out.print("  ");
-				System.out.print(casillas[j][i].getTipoCasilla().getAbr());
-				System.out.print(" |");
-			}
-			System.out.println();
-			System.out.print("|");
-			for (int x=0; x<dimension;x++) { //Primera columna
-				System.out.print("-----|");
-			}
-			System.out.println();
-		}
+	public String  dibujaLeyenda() {
 		StringBuffer strBuff = new StringBuffer();
 		strBuff.append("PA -> Pared\n");
 		strBuff.append("AG -> Agujero\n");
@@ -176,9 +152,37 @@ public class Tablero implements Serializable {
 		strBuff.append("JN -> Jugador mirando al norte\n");
 		strBuff.append("JS -> Jugador mirando al sur\n");
 		strBuff.append("JE -> Jugador mirando al este\n");
-		strBuff.append("JO -> Jugador mirando al oeste\n");
-		System.out.println();
-		System.out.println(strBuff.toString());
+		strBuff.append("JO -> Jugador mirando al oeste\n\n");
+		return strBuff.toString();
+	}
+	
+	/**
+	 * Dibuja el tablero en modo texto mostrando las casillas y su contenido
+	 */
+	public String dibuja() {
+		
+		StringBuffer buffer = new StringBuffer();
+		for(int i=0;i<dimension;i++) { //Filas
+			buffer.append("|");
+			for (int x=0; x<dimension;x++) { //Primera fila
+				buffer.append("-----|");
+			}
+			buffer.append("\n");
+			buffer.append("|");
+			for (int j=0; j<dimension;j++) { //Columnas intermedias
+				buffer.append("  ");
+				buffer.append(casillas[j][i].getTipoCasilla().getAbr());
+				buffer.append(" |");
+			}
+			buffer.append("\n");
+			buffer.append("|");
+			for (int x=0; x<dimension;x++) { //Primera columna
+				buffer.append("-----|");
+			}
+			buffer.append("\n");;
+		}
+		
+		return buffer.toString();
 	}
 	
 	/**
@@ -502,6 +506,21 @@ public class Tablero implements Serializable {
 
 	public void setDimension(int dimension) {
 		this.dimension = dimension;
+	}
+
+	public Casilla[][] getCasillas() {
+		return casillas;
+	}
+
+	public void setCasillas(Casilla[][] casillas) {
+		this.casillas = casillas;
 	}	
+	
+	@Override
+	public String toString() {
+		StringBuffer buffer = new StringBuffer().append("gana: ").append(gana?"V":"F").append(" | ").append("pierde: ").append(pierde?"V":"F").append("\n");
+		buffer.append(dibuja());
+		return buffer.toString();
+	}
 	
 }
